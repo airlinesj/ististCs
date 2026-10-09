@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #1e1017; color: #faf8f5; }
+button, input, textarea, select { font: inherit; }
+
+.heart-loader {
+  width: 50px;
+  aspect-ratio: 1;
+  color: #dc1818;
+  background:
+    radial-gradient(circle at 60% 65%, currentColor 62%, #0000 65%) top left,
+    radial-gradient(circle at 40% 65%, currentColor 62%, #0000 65%) top right,
+    linear-gradient(to bottom left, currentColor 42%, #0000 43%) bottom left,
+    linear-gradient(to bottom right, currentColor 42%, #0000 43%) bottom right;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.heart-loader:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  opacity: 0.4;
+  animation: l3 1s infinite;
+}
+@keyframes l3 { to { transform: scale(1.8); opacity: 0; } }
+
+.action-loader {
+  width: 110px;
+  height: 30px;
+  color: #e11d48;
+  display: flex;
+  background:
+    linear-gradient(currentColor 0 0) left / 30px 10px,
+    linear-gradient(currentColor 0 0) right / 30px 10px,
+    conic-gradient(from -136deg at 15px 50%, #0000, currentColor 1deg 90deg, #0000 91deg) 30px 0 / 100% 100%,
+    conic-gradient(from 44deg at calc(100% - 15px) 50%, #0000, currentColor 1deg 90deg, #0000 91deg) calc(100% - 30px) 0 / 100% 100%;
+  background-repeat: no-repeat;
+  animation: l7 .5s infinite alternate;
+}
+.action-loader:before { content: ""; flex: 1; background: inherit; transform: rotate(90deg); }
+@keyframes l7 { 90%, 100% { width: 93px; } }
+
+.glass { @apply border border-white/15 bg-white/10 backdrop-blur-lg; }
+.text-balance { text-wrap: balance; }
