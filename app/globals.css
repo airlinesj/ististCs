@@ -5,8 +5,9 @@
 :root { color-scheme: dark; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: #1e1017; color: #faf8f5; }
+body { min-width: 320px; margin: 0; background: #1e1017; color: #faf8f5; }
 button, input, textarea, select { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 
 .heart-loader {
   width: 50px;
@@ -49,3 +50,12 @@ button, input, textarea, select { font: inherit; }
 
 .glass { @apply border border-white/15 bg-white/10 backdrop-blur-lg; }
 .text-balance { text-wrap: balance; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
